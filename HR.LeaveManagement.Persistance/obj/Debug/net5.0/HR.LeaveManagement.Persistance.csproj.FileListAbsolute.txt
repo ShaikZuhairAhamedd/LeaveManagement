@@ -1,0 +1,17 @@
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\bin\Debug\net5.0\HR.LeaveManagement.Persistance.deps.json
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\bin\Debug\net5.0\HR.LeaveManagement.Persistance.dll
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\bin\Debug\net5.0\ref\HR.LeaveManagement.Persistance.dll
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\bin\Debug\net5.0\HR.LeaveManagement.Persistance.pdb
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\HR.LeaveManagement.Persistance.csproj.AssemblyReference.cache
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\HR.LeaveManagement.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\HR.LeaveManagement.Persistance.AssemblyInfoInputs.cache
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\HR.LeaveManagement.Persistance.AssemblyInfo.cs
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\HR.LeaveManagement.Persistance.csproj.CoreCompileInputs.cache
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\HR.LeaveManagement.Persistance.dll
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\ref\HR.LeaveManagement.Persistance.dll
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\HR.LeaveManagement.Persistance.pdb
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\bin\Debug\net5.0\HR.LeaveManagement.Application.dll
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\bin\Debug\net5.0\HR.LeaveManagement.Domain.dll
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\bin\Debug\net5.0\HR.LeaveManagement.Application.pdb
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\bin\Debug\net5.0\HR.LeaveManagement.Domain.pdb
+C:\Users\shaik zuhair ahamed\OneDrive\Desktop\Lecture\5_10AspNetCoreProjects\HR.LeaveManagement\HR.LeaveManagement.Persistance\obj\Debug\net5.0\HR.LeaveManagement.Persistance.csproj.CopyComplete

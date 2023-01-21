@@ -1,0 +1,17 @@
+﻿using HR.LeaveManagement.Application.DTO;
+using HR.LeaveManagement.Application.DTO.LeaveType;
+using HR.LeaveManagement.Application.Responses;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HR.LeaveManagement.Application.Features.LeaveTypes.Request.Command
+{
+    public class CreateLeaveTypeCommand: IRequest<BaseCommandResponse>
+    {
+        public CreateLeaveTypeDto LeaveTypeDto { get; set; }
+    }
+}
