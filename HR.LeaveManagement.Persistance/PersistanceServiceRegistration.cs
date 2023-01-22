@@ -1,4 +1,5 @@
-﻿using HR.LeaveManagement.Application.Contracts.Persistence;
+﻿using HR.LeaveManagement.Application.Contracts.Persistance;
+using HR.LeaveManagement.Application.Contracts.Persistence;
 using HR.LeaveManagement.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +23,7 @@ namespace HR.LeaveManagement.Persistance
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
             services.AddScoped<ILeaveRequestRepository, LeaveRequestRepository>();
             services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();

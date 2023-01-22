@@ -17,21 +17,24 @@ using Microsoft.AspNetCore.Http;
 using System.IdentityModel.Tokens.Jwt;
 using HR.LeaveManagement.Domain;
 using System.Security.Claims;
+using HR.LeaveManagement.Application.Contracts.Persistance;
 
 namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Command
 {
     public class CreateLeaveRequestCommandHandler : IRequestHandler<CreateLeaveRequestCommand, BaseCommandResponse>
     {
+        private readonly IUnitOfWork unitOfWork;
         private readonly ILeaveRequestRepository leaveRequestRepository;
         private readonly ILeaveAllocationRepository leaveAllocationRepository;
         private readonly IMapper mapper;
         private readonly IEmailSender emailSender;
         private readonly IHttpContextAccessor httpContextAccessor;
 
-        public CreateLeaveRequestCommandHandler(ILeaveRequestRepository leaveRequestRepository,ILeaveAllocationRepository leaveAllocationRepository,IMapper mapper,IEmailSender emailSender,IHttpContextAccessor httpContextAccessor)
+        public CreateLeaveRequestCommandHandler(IUnitOfWork unitOfWork,IMapper mapper,IEmailSender emailSender,IHttpContextAccessor httpContextAccessor)
         {
-            this.leaveRequestRepository = leaveRequestRepository;
-            this.leaveAllocationRepository = leaveAllocationRepository;
+            this.unitOfWork = unitOfWork;
+            this.leaveAllocationRepository = unitOfWork.leaveAllocationRepository;
+            this.leaveRequestRepository = unitOfWork.leaveRequestRepository;
             this.mapper = mapper;
             this.emailSender = emailSender;
             this.httpContextAccessor = httpContextAccessor;
@@ -42,8 +45,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Command
             var validator = new CreateLeaveRequestDtoValidator(leaveRequestRepository);
             var employeeId = this.httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(q => q.Type == "uid")?.Value;
             LeaveAllocation leaveAllocation = this.leaveAllocationRepository.Get(employeeId, request.LeaveRequestDto.LeaveTypeId);
-            int numberofDaysLeaveApplied = (request.LeaveRequestDto.EndDate - request.LeaveRequestDto.StartDate).Days;
-            
+          
             var validationResult = await validator.ValidateAsync(request.LeaveRequestDto);
             if (!validationResult.IsValid) { //throw new ValidationException(validationResult);
 
@@ -51,9 +53,22 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Command
                 response.Message = "Request Failed";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
             }
-            if (leaveAllocation.NumberOfDays < numberofDaysLeaveApplied) {
-                validationResult.Errors.Add(new FluentValidation.Results.ValidationFailure(nameof(request.LeaveRequestDto.EndDate), "Now you don't have enough Days"));
+
+            if (leaveAllocation is null)
+            {
+                validationResult.Errors.Add(new FluentValidation.Results.ValidationFailure(nameof(request.LeaveRequestDto.EndDate), "You Don't Have Any Leave Allocation For This Type...."));
             }
+            else {
+                int numberofDaysLeaveApplied = (request.LeaveRequestDto.EndDate - request.LeaveRequestDto.StartDate).Days;
+                if (leaveAllocation.NumberOfDays < numberofDaysLeaveApplied)
+                {
+                    validationResult.Errors.Add(new FluentValidation.Results.ValidationFailure(nameof(request.LeaveRequestDto.EndDate), "Now you don't have enough Days"));
+                }
+
+
+            }
+
+            
 
 
 
@@ -64,7 +79,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Command
             response.Success = true;
             response.Message = "Creation SuccessFul";
             response.Id = leaveRequest.Id;
-
+            await this.unitOfWork.Save();
             //....Sending Email.... 
             try
             {
