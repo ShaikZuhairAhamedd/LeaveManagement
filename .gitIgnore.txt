@@ -1,3 +1,0 @@
-**/Debug
-.vs/HR.LeaveManagement/v16/.suo
-./HR.LeaveManagement.API/obj/Debug/net5.0/HR.LeaveManagement.API.AssemblyInfo.cs

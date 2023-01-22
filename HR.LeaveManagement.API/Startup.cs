@@ -38,7 +38,7 @@ namespace HR.LeaveManagement.API
             services.ConfigureApplicationServices(Configuration);
             services.ConfigurePersistanceServices(Configuration);
             services.ConfigureIdentityServices(Configuration);
-
+            
             services.AddControllers();
           //  services.AddSwaggerGen(c =>
           //{
