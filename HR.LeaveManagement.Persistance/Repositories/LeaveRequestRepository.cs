@@ -21,7 +21,7 @@ namespace HR.LeaveManagement.Persistance.Repositories
         {
             leaveRequest.Approved = approved;
             dbContext.Entry(leaveRequest).State = EntityState.Modified;
-            await dbContext.SaveChangesAsync();
+            
         }
 
 

@@ -9,18 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using HR.LeaveManagement.Application.Contracts.Persistance;
 
 namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Command
 {
     public class DeleteLeaveRequestCommandHandler : IRequestHandler<DeleteLeaveRequestCommand>
     {
         private readonly ILeaveRequestRepository leaveRequestRepository;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper _mapper;
 
-        public DeleteLeaveRequestCommandHandler(ILeaveRequestRepository leaveRequestRepository, IMapper mapper)
+        public DeleteLeaveRequestCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
            
-            this.leaveRequestRepository = leaveRequestRepository;
+            this.leaveRequestRepository = unitOfWork.leaveRequestRepository;
+            this.unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
@@ -32,6 +35,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Command
                 throw new NotFoundException(nameof(LeaveRequest), request.Id);
 
             await leaveRequestRepository.Delete(leaveRequest);
+            await unitOfWork.Save();
             
             return Unit.Value;
         }
